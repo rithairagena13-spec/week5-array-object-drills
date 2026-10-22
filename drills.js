@@ -311,3 +311,29 @@ console.log(
   "Original unchanged:",
   JSON.stringify(orders) === ORIGINAL
 );
+
+
+
+ // Question 22: Change a customer's district
+const changeDistrict = (orders, id, district) =>
+  orders.map(order =>
+    order.id === id
+      ? { ...order,
+          customer: { ...order.customer,
+            district
+          }
+        }
+      : order
+  );
+
+const districtUpdatedOrders = changeDistrict(orders, 101, "Kicukiro");
+
+console.log(
+  "Question 22:",
+  districtUpdatedOrders.find(({ id }) => id === 101)
+);
+
+console.log(
+  "Original unchanged:",
+  JSON.stringify(orders) === ORIGINAL
+);
