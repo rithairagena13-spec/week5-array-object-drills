@@ -34,7 +34,7 @@ The project includes JavaScript solutions to the workshop exercises and a respon
 
 ### Dashboard Overview
 
-![Kigali Eats Dashboard Overview](screenshots/dashboard-overview(2).png)
+![Kigali Eats Dashboard Overview](screenshots/dashboard-overview.png)
 
 ### Customer Orders and Filters
 
