@@ -167,3 +167,24 @@ const revenueByOrder = orders.map(({ id, items }) => {
 });
 
 console.log("Question 14:", revenueByOrder);
+
+
+
+
+ // Question 15: Group orders by district
+const ordersByDistrict = orders.reduce(
+  (groups, order) => {
+    const { district } = order.customer;
+
+    if (!groups[district]) {
+      groups[district] = [];
+    }
+
+    groups[district].push(order);
+
+    return groups;
+  },
+  {}
+);
+
+console.log("Question 15:", ordersByDistrict);
