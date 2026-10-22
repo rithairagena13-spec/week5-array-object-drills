@@ -64,4 +64,4 @@ The project includes JavaScript solutions to the workshop exercises and a respon
 
 ## Author
 
-JavaScript Week 5 Workshop — Kigali Eats Dashboard
+JavaScript Week 5 Workshop: Kigali Eats Dashboard
