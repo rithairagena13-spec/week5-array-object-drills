@@ -55,3 +55,11 @@ const hasLowRating = orders.some(
 );
 
 console.log("Question 6:", hasLowRating);
+
+
+
+ // Question 7: Do all orders have a customer name?
+const allHaveNames = orders.every(
+  ({ customer: { name } }) => name !== ""
+);
+console.log("Question 7:", allHaveNames);
