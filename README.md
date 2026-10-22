@@ -60,7 +60,7 @@ The project includes JavaScript solutions to the workshop exercises and a respon
 
 ## Score
 
-**My score:** Pending facilitator assessment.
+**My score:** Pending.
 
 ## Author
 
