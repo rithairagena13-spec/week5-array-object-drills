@@ -289,3 +289,25 @@ console.log(
   "Original unchanged:",
   JSON.stringify(orders) === ORIGINAL
 );
+
+
+
+ // Question 21: Rate a delivered order
+const rateOrder = (orders, id, rating) =>
+  orders.map(order =>
+    order.id === id && order.status === "delivered"
+      ? { ...order, rating }
+      : order
+  );
+
+const ratedOrders = rateOrder(orders, 101, 4);
+
+console.log(
+  "Question 21:",
+  ratedOrders.find(({ id }) => id === 101)
+);
+
+console.log(
+  "Original unchanged:",
+  JSON.stringify(orders) === ORIGINAL
+);
