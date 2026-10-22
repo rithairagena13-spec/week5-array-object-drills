@@ -361,3 +361,19 @@ const removeCancelled = (orders) =>
 const activeOrders = removeCancelled(orders);
 console.log("Question 24:", activeOrders);
 console.log("Original unchanged:", JSON.stringify(orders) === ORIGINAL);
+
+
+
+ // Question 25: Apply a discount to every item
+const applyDiscount = (orders, percent) =>
+  orders.map(order => ({
+    ...order,
+    items: order.items.map(item => ({
+      ...item,
+      price: Math.round(item.price * (1 - percent / 100))
+    }))
+  }));
+
+const discountedOrders = applyDiscount(orders, 10);
+console.log("Question 25:", discountedOrders);
+console.log("Original unchanged:", JSON.stringify(orders) === ORIGINAL);
