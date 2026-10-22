@@ -337,3 +337,19 @@ console.log(
   "Original unchanged:",
   JSON.stringify(orders) === ORIGINAL
 );
+
+
+
+ // Question 23: Add an item to an order
+const addItem = (orders, id, item) =>
+  orders.map(order =>
+    order.id === id
+      ? { ...order, items: [...order.items, item] }
+      : order
+  );
+
+const itemUpdatedOrders = addItem(orders, 101, { name: "Samosa", price: 1000, qty: 2 });
+console.log("Question 23:", itemUpdatedOrders.find(({ id }) => id === 101));
+console.log("Original unchanged:", JSON.stringify(orders) === ORIGINAL);
+
+
