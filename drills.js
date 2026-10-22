@@ -212,7 +212,6 @@ const dailySummary = Object.entries(groupedByDate).map(
 
 console.log("Question 16:", dailySummary);
 
-
  
  // Question 17: Top 3 best-selling items
 const itemSales = orders
@@ -228,3 +227,28 @@ const topThreeItems = Object.entries(itemSales)
   .slice(0, 3);
 
 console.log("Question 17:", topThreeItems);
+
+
+ // Question 18: Each customer's order count and total spent
+const customerSummary = Object.entries(
+  orders.reduce((customers, order) => {
+    const { name } = order.customer;
+
+    if (!customers[name]) {
+      customers[name] = { name, orders: 0, spent: 0 };
+    }
+
+    customers[name].orders += 1;
+
+    customers[name].spent += order.items.reduce(
+      (total, { price, qty }) => total + price * qty,
+      0
+    );
+
+    return customers;
+  }, {})
+)
+  .map(([name, summary]) => summary)
+  .toSorted((a, b) => b.spent - a.spent);
+
+console.log("Question 18:", customerSummary);
