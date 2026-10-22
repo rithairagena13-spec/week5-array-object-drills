@@ -69,3 +69,19 @@ console.log("Question 7:", allHaveNames);
  // Question 8: Does the array of order IDs include 105?
 const includesOrder105 = orderIds.includes(105);
 console.log("Question 8:", includesOrder105);
+
+
+// Station 2 — Calculations with reduce
+
+ // Question 9: Total quantity of items across all orders
+const totalItemsSold = orders.reduce(
+  (total, { items }) => {
+    return total + items.reduce(
+      (itemTotal, { qty }) => itemTotal + qty,
+      0
+    );
+  },
+  0
+);
+
+console.log("Question 9:", totalItemsSold);
