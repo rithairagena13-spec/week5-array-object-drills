@@ -213,20 +213,18 @@ const dailySummary = Object.entries(groupedByDate).map(
 console.log("Question 16:", dailySummary);
 
 
- // Question 17: Group orders by customer name
-const ordersByCustomer = orders.reduce(
-  (groups, order) => {
-    const { name } = order.customer;
+ 
+ // Question 17: Top 3 best-selling items
+const itemSales = orders
+  .flatMap(({ items }) => items)
+  .reduce((sales, { name, qty }) => {
+    sales[name] = (sales[name] || 0) + qty;
+    return sales;
+  }, {});
 
-    if (!groups[name]) {
-      groups[name] = [];
-    }
+const topThreeItems = Object.entries(itemSales)
+  .map(([name, qty]) => ({ name, qty }))
+  .toSorted((a, b) => b.qty - a.qty)
+  .slice(0, 3);
 
-    groups[name].push(order);
-
-    return groups;
-  },
-  {}
-);
-
-console.log("Question 17:", ordersByCustomer);
+console.log("Question 17:", topThreeItems);
