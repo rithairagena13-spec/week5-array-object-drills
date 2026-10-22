@@ -353,3 +353,11 @@ console.log("Question 23:", itemUpdatedOrders.find(({ id }) => id === 101));
 console.log("Original unchanged:", JSON.stringify(orders) === ORIGINAL);
 
 
+
+ // Question 24: Remove cancelled orders
+const removeCancelled = (orders) =>
+  orders.filter(order => order.status !== "cancelled");
+
+const activeOrders = removeCancelled(orders);
+console.log("Question 24:", activeOrders);
+console.log("Original unchanged:", JSON.stringify(orders) === ORIGINAL);
