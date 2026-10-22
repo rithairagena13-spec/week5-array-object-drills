@@ -377,3 +377,5 @@ const applyDiscount = (orders, percent) =>
 const discountedOrders = applyDiscount(orders, 10);
 console.log("Question 25:", discountedOrders);
 console.log("Original unchanged:", JSON.stringify(orders) === ORIGINAL);
+
+console.log("All original orders unchanged:", JSON.stringify(orders) === ORIGINAL);
