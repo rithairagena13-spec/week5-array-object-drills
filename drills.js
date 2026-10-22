@@ -168,8 +168,7 @@ const revenueByOrder = orders.map(({ id, items }) => {
 
 console.log("Question 14:", revenueByOrder);
 
-
-
+// Station 3 — Grouping &amp; ranking (20 min) — 3 points each
 
  // Question 15: Group orders by district
 const ordersByDistrict = orders.reduce(
@@ -209,3 +208,21 @@ const ordersByStatus = orders.reduce(
 
 console.log("Question 16:", ordersByStatus);
 
+
+ // Question 17: Group orders by customer name
+const ordersByCustomer = orders.reduce(
+  (groups, order) => {
+    const { name } = order.customer;
+
+    if (!groups[name]) {
+      groups[name] = [];
+    }
+
+    groups[name].push(order);
+
+    return groups;
+  },
+  {}
+);
+
+console.log("Question 17:", ordersByCustomer);
