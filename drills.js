@@ -189,23 +189,28 @@ const revenueByDistrict = orders
 
 console.log("Question 15:", revenueByDistrict);
 
- // Question 16: Group orders by status
-const ordersByStatus = orders.reduce(
-  (groups, order) => {
-    const { status } = order;
-
-    if (!groups[status]) {
-      groups[status] = [];
-    }
-
-    groups[status].push(order);
-
-    return groups;
-  },
-  {}
+ 
+ // Question 16: Group orders by date
+const groupedByDate = Object.groupBy(
+  orders,
+  ({ date }) => date
 );
 
-console.log("Question 16:", ordersByStatus);
+const dailySummary = Object.entries(groupedByDate).map(
+  ([date, dailyOrders]) => ({
+    date,
+    count: dailyOrders.length,
+    revenue: dailyOrders.reduce(
+      (total, order) => total + order.items.reduce(
+        (sum, { price, qty }) => sum + price * qty,
+        0
+      ),
+      0
+    )
+  })
+);
+
+console.log("Question 16:", dailySummary);
 
 
  // Question 17: Group orders by customer name
