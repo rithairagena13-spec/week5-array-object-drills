@@ -39,3 +39,10 @@ const gasaboOrders = orders.filter(
 );
 
 console.log("Question 4:", gasaboOrders);
+
+
+
+ // Question 5: The order with id 106
+const order106 = orders.find(({ id }) => id === 106);
+
+console.log("Question 5:", order106);
