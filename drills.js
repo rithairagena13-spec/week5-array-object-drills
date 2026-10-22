@@ -252,3 +252,16 @@ const customerSummary = Object.entries(
   .toSorted((a, b) => b.spent - a.spent);
 
 console.log("Question 18:", customerSummary);
+
+
+
+ // Question 19: Build a menu price list
+const menuPrices = Object.fromEntries(
+  [...new Map(
+    orders.flatMap(({ items }) =>
+      items.map(({ name, price }) => [name, price])
+    )
+  )]
+);
+
+console.log("Question 19:", menuPrices);
