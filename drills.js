@@ -46,3 +46,12 @@ console.log("Question 4:", gasaboOrders);
 const order106 = orders.find(({ id }) => id === 106);
 
 console.log("Question 5:", order106);
+
+
+
+ // Question 6: Does any order have a rating of 3 or lower?
+const hasLowRating = orders.some(
+  ({ rating }) => rating !== null && rating <= 3
+);
+
+console.log("Question 6:", hasLowRating);
