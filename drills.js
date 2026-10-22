@@ -139,3 +139,18 @@ const totalRating = ratedOrders.reduce(
 const averageRating = totalRating / ratedOrders.length;
 
 console.log("Question 12:", averageRating);
+
+
+ // Question 13: Total revenue from delivered orders
+const deliveredRevenue = orders
+  .filter(({ status }) => status === "delivered")
+  .reduce((total, { items }) => {
+    const orderTotal = items.reduce(
+      (sum, { price, qty }) => sum + price * qty,
+      0
+    );
+
+    return total + orderTotal;
+  }, 0);
+
+console.log("Question 13:", deliveredRevenue);
