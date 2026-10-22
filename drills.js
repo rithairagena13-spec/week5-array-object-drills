@@ -265,3 +265,27 @@ const menuPrices = Object.fromEntries(
 );
 
 console.log("Question 19:", menuPrices);
+
+
+// Station 4 — Immutable updates
+
+
+ // Question 20: Mark a pending order as delivered
+const markDelivered = (orders, id) =>
+  orders.map(order =>
+    order.id === id && order.status === "pending"
+      ? { ...order, status: "delivered" }
+      : order
+  );
+
+const updatedOrder = markDelivered(orders, 105);
+
+console.log(
+  "Question 20:",
+  updatedOrder.find(({ id }) => id === 105)
+);
+
+console.log(
+  "Original unchanged:",
+  JSON.stringify(orders) === ORIGINAL
+);
