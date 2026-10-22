@@ -22,3 +22,11 @@ const customerNames = orders.map(
 
 console.log("Question 2:", customerNames);
 
+
+
+ // Question 3: All delivered orders
+const deliveredOrders = orders.filter(
+  ({ status }) => status === "delivered"
+);
+
+console.log("Question 3:", deliveredOrders);
