@@ -102,3 +102,24 @@ const totalRevenue = orders.reduce(
 );
 
 console.log("Question 10:", totalRevenue);
+
+
+
+ // Question 11: Find the most expensive order
+const mostExpensiveOrder = orders.reduce(
+  (highest, current) => {
+    const highestTotal = highest.items.reduce(
+      (sum, { price, qty }) => sum + price * qty,
+      0
+    );
+
+    const currentTotal = current.items.reduce(
+      (sum, { price, qty }) => sum + price * qty,
+      0
+    );
+
+    return currentTotal > highestTotal ? current : highest;
+  }
+);
+
+console.log("Question 11:", mostExpensiveOrder.id);
