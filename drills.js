@@ -85,3 +85,20 @@ const totalItemsSold = orders.reduce(
 );
 
 console.log("Question 9:", totalItemsSold);
+
+
+
+ // Question 10: Calculate total revenue from all orders
+const totalRevenue = orders.reduce(
+  (total, { items }) => {
+    const orderTotal = items.reduce(
+      (sum, { price, qty }) => sum + price * qty,
+      0
+    );
+
+    return total + orderTotal;
+  },
+  0
+);
+
+console.log("Question 10:", totalRevenue);
