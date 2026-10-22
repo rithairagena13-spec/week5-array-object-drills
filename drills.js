@@ -123,3 +123,19 @@ const mostExpensiveOrder = orders.reduce(
 );
 
 console.log("Question 11:", mostExpensiveOrder.id);
+
+
+
+ // Question 12: Calculate the average rating
+const ratedOrders = orders.filter(
+  ({ rating }) => rating !== null
+);
+
+const totalRating = ratedOrders.reduce(
+  (total, { rating }) => total + rating,
+  0
+);
+
+const averageRating = totalRating / ratedOrders.length;
+
+console.log("Question 12:", averageRating);
