@@ -170,25 +170,24 @@ console.log("Question 14:", revenueByOrder);
 
 // Station 3 — Grouping &amp; ranking (20 min) — 3 points each
 
- // Question 15: Group orders by district
-const ordersByDistrict = orders.reduce(
-  (groups, order) => {
+
+ // Question 15: Revenue per district from delivered orders
+const revenueByDistrict = orders
+  .filter(({ status }) => status === "delivered")
+  .reduce((totals, order) => {
     const { district } = order.customer;
 
-    if (!groups[district]) {
-      groups[district] = [];
-    }
+    const total = order.items.reduce(
+      (sum, { price, qty }) => sum + price * qty,
+      0
+    );
 
-    groups[district].push(order);
+    totals[district] = (totals[district] || 0) + total;
 
-    return groups;
-  },
-  {}
-);
+    return totals;
+  }, {});
 
-console.log("Question 15:", ordersByDistrict);
-
-
+console.log("Question 15:", revenueByDistrict);
 
  // Question 16: Group orders by status
 const ordersByStatus = orders.reduce(
