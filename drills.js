@@ -30,3 +30,12 @@ const deliveredOrders = orders.filter(
 );
 
 console.log("Question 3:", deliveredOrders);
+
+
+
+ // Question 4: All orders from Gasabo
+const gasaboOrders = orders.filter(
+  ({ customer: { district } }) => district === "Gasabo"
+);
+
+console.log("Question 4:", gasaboOrders);
