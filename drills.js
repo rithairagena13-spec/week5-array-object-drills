@@ -63,3 +63,9 @@ const allHaveNames = orders.every(
   ({ customer: { name } }) => name !== ""
 );
 console.log("Question 7:", allHaveNames);
+
+
+
+ // Question 8: Does the array of order IDs include 105?
+const includesOrder105 = orderIds.includes(105);
+console.log("Question 8:", includesOrder105);
