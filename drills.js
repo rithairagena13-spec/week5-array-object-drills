@@ -154,3 +154,16 @@ const deliveredRevenue = orders
   }, 0);
 
 console.log("Question 13:", deliveredRevenue);
+
+
+ // Question 14: Calculate revenue for each order
+const revenueByOrder = orders.map(({ id, items }) => {
+  const total = items.reduce(
+    (sum, { price, qty }) => sum + price * qty,
+    0
+  );
+
+  return { id, total };
+});
+
+console.log("Question 14:", revenueByOrder);
