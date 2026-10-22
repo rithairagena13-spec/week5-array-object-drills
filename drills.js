@@ -188,3 +188,24 @@ const ordersByDistrict = orders.reduce(
 );
 
 console.log("Question 15:", ordersByDistrict);
+
+
+
+ // Question 16: Group orders by status
+const ordersByStatus = orders.reduce(
+  (groups, order) => {
+    const { status } = order;
+
+    if (!groups[status]) {
+      groups[status] = [];
+    }
+
+    groups[status].push(order);
+
+    return groups;
+  },
+  {}
+);
+
+console.log("Question 16:", ordersByStatus);
+
